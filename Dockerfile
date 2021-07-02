@@ -137,7 +137,7 @@ COPY native /home/simulator/data/native
 
 RUN mkdir /home/simulator/FRENSIE; \
     cd /home/simulator/FRENSIE; \
-    git clone -b HPC_docker --single-branch https://github.com/psbritt/FRENSIE.git; \
+    git clone -b master --single-branch https://github.com/FRENSIE/FRENSIE.git; \
     ln -s FRENSIE src; \
     mkdir build; \
     cd build; \
