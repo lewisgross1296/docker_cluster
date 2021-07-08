@@ -35,7 +35,7 @@ RUN mkdir /home/simulator/dependencies/cmake; \
     mkdir build; \
     cd build; \
     ../configure --prefix="/home/simulator/dependencies/cmake"; \
-    make -j8; \
+    make -j16; \
     make install; \
     rm -rf /home/simulator/temp/*
 
@@ -49,7 +49,7 @@ RUN mkdir /home/simulator/dependencies/openmpi; \
     mkdir build; \
     cd build; \
     ../configure --prefix=/home/simulator/dependencies/openmpi; \
-    make -j8; \
+    make -j 16; \
     make install; \
     rm -rf /home/simulator/temp/*
 
@@ -65,7 +65,7 @@ RUN mkdir /home/simulator/dependencies/hdf5; \
     mkdir build; \
     cd build; \
     ../configure --prefix="/home/simulator/dependencies/hdf5" --enable-optimized --enable-shared --enable-cxx --enable-hl --disable-debug; \
-    make -j8; \
+    make -j 16; \
     make install; \
     rm -rf /home/simulator/temp/*
 
@@ -81,7 +81,7 @@ RUN mkdir /home/simulator/dependencies/swig; \
     mkdir build; \
     cd build; \
     ../configure --prefix="/home/simulator/dependencies/swig"; \
-    make -j8; \
+    make -j 16; \
     make install; \
     rm -rf /home/simulator/temp/*    
 
@@ -94,7 +94,7 @@ RUN mkdir /home/simulator/dependencies/boost; \
     cd boost_1_72_0; \
     ./bootstrap.sh --prefix=/home/simulator/dependencies/boost; \
     sed -i "$ a using mpi ;" project-config.jam; \
-    ./b2 -j8 --prefix=/home/simulator/dependencies/boost -s NO_BZIP2=1 link=shared runtime-link=shared install; \
+    ./b2 -j16 --prefix=/home/simulator/dependencies/boost -s NO_BZIP2=1 link=shared runtime-link=shared install; \
     rm -rf /home/simulator/temp/*
 
 ENV LD_LIBRARY_PATH /home/simulator/dependencies/boost/lib:$LD_LIBRARY_PATH
@@ -107,7 +107,7 @@ RUN mkdir /home/simulator/dependencies/moab; \
     mkdir build; \
     cd build; \
     ../configure --enable-optimize --enable-shared --disable-debug --with-hdf5=/home/simulator/dependencies/hdf5 --prefix=/home/simulator/dependencies/moab/; \
-    make -j8; \
+    make -j 16; \
     make install; \
     rm -rf /home/simulator/temp/*
 
@@ -123,7 +123,7 @@ RUN mkdir /home/simulator/dependencies/dagmc; \
     cd build; \
     env HDF5_/home/simulator=/home/simulator/dependencies/hdf5; \
     cmake .. -DCMAKE_INSTALL_PREFIX=/home/simulator/dependencies/dagmc -DCMAKE_BUILD_TYPE:STRING=Release -DMOAB_DIR=/home/simulator/dependencies/moab; \
-    make -j8; \
+    make -j 16; \
     make install; \
     rm -rf /home/simulator/temp/*
 
@@ -163,7 +163,7 @@ RUN mkdir /home/simulator/FRENSIE; \
           -D SWIG_PREFIX:PATH=/home/simulator/dependencies/swig \
           -D FRENSIE_ENABLE_DASHBOARD_CLIENT:BOOL=ON \
           /home/simulator/FRENSIE/src; \
-    make -j8; \
+    make -j16; \
     make install; \
     rm -rf /home/simulator/FRENSIE/build; \
     rm -rf /home/simulator/FRENSIE/FRENSIE; \
