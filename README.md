@@ -9,4 +9,4 @@ docker build -t ligross/frensie_hpc:frensie_stable .
 # run instructiuns
 
 # push instructions
-docker push ligross/frensie_hpc:frensie_hpc
+docker push ligross/frensie_hpc:frensie_stable
