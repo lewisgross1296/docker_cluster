@@ -167,7 +167,7 @@ RUN mkdir /home/simulator/FRENSIE; \
     make install; \
 #   rm -rf /home/simulator/FRENSIE/build; \
     rm -rf /home/simulator/FRENSIE/FRENSIE; \
-    rm -rf /home/simulator/FRENSIE/src
+    rm -rf /home/simulator/FRENSIE/src 
 
 ENV PATH /home/simulator/FRENSIE/bin:$PATH
 
