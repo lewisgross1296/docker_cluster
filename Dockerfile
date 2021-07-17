@@ -117,12 +117,14 @@ ENV LD_LIBRARY_PATH /home/simulator/dependencies/moab/lib:$LD_LIBRARY_PATH
 
 RUN mkdir /home/simulator/dependencies/dagmc; \
     cd /home/simulator/temp; \
-    git clone -b develop --single-branch https://github.com/svalinn/DAGMC.git; \
+    git clone -b amalgamate_py2_fix --single-branch https://github.com/lewisgross1296/DAGMC.git; \
     cd DAGMC; \
     mkdir build; \
     cd build; \
     env HDF5_/home/simulator=/home/simulator/dependencies/hdf5; \
-    cmake .. -DCMAKE_INSTALL_PREFIX=/home/simulator/dependencies/dagmc -DCMAKE_BUILD_TYPE:STRING=Release -DMOAB_DIR=/home/simulator/dependencies/moab; \
+    cmake .. -DCMAKE_INSTALL_PREFIX=/home/simulator/dependencies/dagmc \
+             -DCMAKE_BUILD_TYPE:STRING=Release \
+             -DMOAB_DIR=/home/simulator/dependencies/moab; \
     make -j8; \
     make install; \
     rm -rf /home/simulator/temp/*
