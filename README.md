@@ -7,8 +7,9 @@ A repository for creating docker files to be used on the CHTC HPC
 docker build -t ligross/frensie_hpc:frensie_stable .
 
 # run in interactive mode with -i 
-# docker container run -it [image id] : image id can eb the repo:tag or it can be the hash under IMAGE ID
-docker container run -it ligross/frensie_hpc:frensie_stable
+# docker container run -it [image id] or 
+# you can use docker run -it <user>/repo:tag
+docker run -it ligross/frensie_hpc:frensie_stable
 
 # push instructions
 docker push ligross/frensie_hpc:frensie_stable
