@@ -167,7 +167,7 @@ RUN mkdir /home/simulator/FRENSIE; \
           /home/simulator/FRENSIE/src; \
     make -j8; \
     make install; \
-#   rm -rf /home/simulator/FRENSIE/build; \
+    rm -rf /home/simulator/FRENSIE/build; \
     rm -rf /home/simulator/FRENSIE/FRENSIE; \
     rm -rf /home/simulator/FRENSIE/src 
 
